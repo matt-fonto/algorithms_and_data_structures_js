@@ -4,7 +4,7 @@ class Stack {
   }
 
   peek() {
-    const lastElement = this.items.legth - 1;
+    const lastElement = this.items.length - 1;
     return this.items[lastElement];
   }
 
