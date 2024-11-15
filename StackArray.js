@@ -4,7 +4,8 @@ class Stack {
   }
 
   peek() {
-    return this.items[this.items.length - 1];
+    const lastElement = this.items.legth - 1;
+    return this.items[lastElement];
   }
 
   size() {
@@ -24,7 +25,7 @@ class Stack {
   }
 
   push(value) {
-    return this.items.push(value);
+    this.items.push(value); // no need to return anything
   }
 
   toString() {
@@ -41,8 +42,10 @@ class Stack {
     for (let i = 0; i < this.items.length; i++) {
       string += this.items[i];
 
+      const lastElement = this.items.length - 1;
+
       // add a comma ONLY if it's not the last element
-      if (i < this.items.length - 1) {
+      if (i < lastElement) {
         string += ", ";
       }
     }

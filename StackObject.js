@@ -18,12 +18,17 @@ class Stack {
 
   clear() {
     this.items = {};
+    this.count = 0;
   }
 
   pop() {
-    const result = this.items[this.items.count];
-    delete this.items[this.items.count];
-    this.count--;
+    if (this.isEmpty()) {
+      return undefined;
+    }
+
+    this.count--; // decrement it first, otherwise we will get an undefined value
+    const result = this.items[this.count];
+    delete this.items[this.count];
     return result;
   }
 
@@ -40,7 +45,6 @@ class Stack {
     let string = "";
 
     for (let i = 0; i < this.count; i++) {
-      console.log("this.items[i]", this.items[i]);
       string += this.items[i];
 
       if (i < this.count - 1) {
@@ -60,3 +64,9 @@ stack.push("mateus");
 
 console.log(stack.toString());
 console.log(stack.peek());
+console.log(stack.size());
+
+stack.pop();
+console.log(stack.toString());
+console.log(stack.peek());
+console.log(stack.size());
