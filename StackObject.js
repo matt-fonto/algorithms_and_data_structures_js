@@ -58,15 +58,18 @@ class Stack {
 
 const stack = new Stack();
 
-stack.push("hamlet");
-stack.push("gabi");
-stack.push("mateus");
+// stack.push("hamlet");
+// stack.push("gabi");
+// stack.push("mateus");
 
-console.log(stack.toString());
-console.log(stack.peek());
-console.log(stack.size());
+// console.log(stack.toString());
+// console.log(stack.peek());
+// console.log(stack.size());
 
-stack.pop();
-console.log(stack.toString());
-console.log(stack.peek());
-console.log(stack.size());
+// stack.pop();
+// console.log(stack.toString());
+// console.log(stack.peek());
+// console.log(stack.size());
+
+// export
+module.exports = Stack;
