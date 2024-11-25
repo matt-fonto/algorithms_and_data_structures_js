@@ -1,13 +1,15 @@
 // palindrome: series of characters which reads equal backward and frontward
 
 // require Stack.js
-const Stack = require("./StackObject");
+// const Stack = require("./StackObject");
 
 // madam, kayak, level
 
 function isPalindrome(word) {
-  const normalSequence = new Stack();
-  const invertedSequence = new Stack();
+  // const normalSequence = new Stack();
+  // const invertedSequence = new Stack();
+  const normalSequence = [];
+  const invertedSequence = [];
 
   for (let i = 0; i < word.length; i++) {
     normalSequence.push(word[i]);
