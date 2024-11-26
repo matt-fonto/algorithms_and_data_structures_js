@@ -5,8 +5,8 @@
 */
 
 /**
- * @param {str} str
- * @returns {str}
+ * @param {string} str
+ * @returns {string}
  */
 function maxChar(str) {
   // character map
@@ -17,22 +17,59 @@ function maxChar(str) {
   //     d: 1
   // }
   const map = {};
+  let maxCount = 0;
+  let maxChar = "";
+
+  // of: for...of -> loops through arrays in strings
+  // in: for...in -> loops through objects
 
   // Add to the map
   for (let i = 0; i < str.length; i++) {
+    // check if the value already exists
+    // if yes, increment it
     if (map[str[i]]) {
       map[str[i]]++;
     } else {
+      // if no, initiliaze it
       map[str[i]] = 1;
     }
   }
 
-  // Need to find biggest value
-  for (const [key, value] of Object.entries(map)) {
-    console.log("key,value", key, value);
+  for (const [char, count] of Object.entries(map)) {
+    if (count > maxCount) {
+      maxCount = count;
+      maxChar = char;
+    }
   }
 
-  return map;
+  return maxChar;
 }
 
-console.log(maxChar("abbbbcccccccdddd"));
+// console.log(maxChar("abbbbcccccccdddd"));
+
+/**
+ * @param {string} str
+ * @returns {string}
+ * - code reduction in for loop to create map
+ * - using for in to loop through object
+ */
+function maxCharRefactored(str) {
+  const map = {};
+  let maxCount = 0;
+  let maxChar = "";
+
+  for (let char of str) {
+    map[char] = map[char] + 1 || 1;
+  }
+
+  for (let char in map) {
+    if (map[char] > maxCount) {
+      maxCount = map[char];
+      maxChar = char;
+    }
+  }
+
+  return maxChar;
+}
+
+console.log(maxCharRefactored("abbbbccccddddweeewdd"));
