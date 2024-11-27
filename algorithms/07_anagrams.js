@@ -53,6 +53,23 @@ function compareObjects(obj1, obj2) {
   return true;
 }
 
-console.log(anagrams("coding rock", "rock coding"));
-console.log(anagrams("RAIL SAFETY!", "fairy tales"));
-console.log(anagrams("RIL SAFETY!", "fairy tales"));
+// console.log(anagrams("coding rock", "rock coding"));
+// console.log(anagrams("RAIL SAFETY!", "fairy tales"));
+// console.log(anagrams("RIL SAFETY!", "fairy tales"));
+
+function anagramSimplified(str1, str2) {
+  return formatStr(str1) === formatStr(str2);
+}
+
+function formatStr(str) {
+  return str
+    .toLowerCase()
+    .replace(/[^A-Z0-9]/gi, "")
+    .split("")
+    .sort()
+    .join();
+}
+
+console.log(anagramSimplified("coding rock", "rock coding"));
+console.log(anagramSimplified("RAIL SAFETY!", "fairy tales"));
+console.log(anagramSimplified("RIL SAFETY!", "fairy tales"));
